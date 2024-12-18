@@ -16,5 +16,18 @@ namespace QLSinhVien
         {
             InitializeComponent();
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show
+                ("Bạn có chắc chắn muốn thoát không?",
+                "Thông báo", 
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes) 
+            { 
+                Close();
+            }
+        }
     }
 }
