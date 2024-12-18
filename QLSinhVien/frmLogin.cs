@@ -19,15 +19,28 @@ namespace QLSinhVien
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
+            Application.Exit();
+        }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
             DialogResult result = MessageBox.Show
                 ("Bạn có chắc chắn muốn thoát không?",
-                "Thông báo", 
+                "Thông báo",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
-            if (result == DialogResult.Yes) 
-            { 
-                Close();
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
             }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            frmPhanMem frmPhanMem = new frmPhanMem();
+            this.Hide();
+            frmPhanMem.ShowDialog();
+            this.Show();
         }
     }
 }
